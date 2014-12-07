@@ -8,23 +8,25 @@ This module is able to write the device code to update only a section of the scr
 ## Usage
 
 ```js
+var PervasiveDisplaysInterpreter = require('pervasive-displays-interpreter')
 var pervDisp = require('pervasive-displays-interpreter')
+
 var options = {
 	screenSize : {
 		height: 176,
 		width: 264
 	},
-	updateSize : {
+	updateArea : {
 		height: 20,
-		width: 80
-	},
-	updatePosition : {
-		x : 96,
-		y : 244,
+		width: 80,
+		xPos : 96,
+		yPos : 244
 	}
 }
 
+var pervDisp = new PervasiveDisplaysInterpreter(options)
+
 fs.createReadStream('img.mono')
-  .pipe(pervDisp(options))
+  .pipe(pervDisp)
   .pipe(fs.createWriteStream('imgout'))
 ```

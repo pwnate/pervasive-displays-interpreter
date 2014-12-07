@@ -1,0 +1,27 @@
+{
+  "name": "pervasive-displays-interpreter",
+  "version": "0.0.0",
+  "description": "Take in a stream of data and interpret it to send directly to a pervasive displays e paper screen",
+  "main": "index.js",
+  "author": {
+    "name": "pwnate",
+    "email" : "me@davisnathan.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "tap ./test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pwnate/pervasive-displays-interpreter.git"
+  },
+  "devDependencies": {
+    "tap": "^0.4.13"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "block-stream": "~0.0.7"
+  }
+}

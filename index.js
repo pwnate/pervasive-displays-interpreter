@@ -33,13 +33,13 @@ module.exports = function pervDisp (opts) {
 		}
 
 		//translate image data
-		var bitIndex = 0
+		var pixelIndex = 0
 		for (var col = 0; col < (opts.screenSize.width / 8); col++) {
 			var evenPixelByte = 0x00
 			var oddPixelByte  = 0x00
 			for (var bit = 0; bit < 8; bit++) {//working from left to right
 				// only set pixels to black or white if they lie within the updateArea range
-				if ((bitIndex >= opts.updateArea.xPos) && (bitIndex < (opts.updateArea.xPos + opts.updateArea.width))) {
+				if ((pixelIndex >= opts.updateArea.xPos) && (pixelIndex < (opts.updateArea.xPos + opts.updateArea.width))) {
 					// the display expects the data for each line to be interlaced; all odd pixels, then all even pixels
 					if (!(bit % 2)) {	// odd pixels (bit index is even)
 						if (tempData[col - Math.floor(opts.updateArea.xPos / 8)] & (0x01 << (7 - bit))) {
@@ -55,7 +55,7 @@ module.exports = function pervDisp (opts) {
 						}
 					}
 				}
-				bitIndex++
+				pixelIndex++
 			}
 			// the first (width * 3 / 16) bytes are odd pixels in descending order [D(263, y), D(261,y)...]
 			displayRowData[(opts.screenSize.width / 8) - col - 1] = oddPixelByte

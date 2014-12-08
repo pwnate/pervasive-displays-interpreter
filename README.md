@@ -9,7 +9,6 @@ This module is able to write the device code to update only a section of the scr
 
 ```js
 var PervasiveDisplaysInterpreter = require('pervasive-displays-interpreter')
-var pervDisp = require('pervasive-displays-interpreter')
 
 var options = {
 	screenSize : {
